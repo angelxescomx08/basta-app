@@ -1,7 +1,7 @@
+import { signIn } from "next-auth/react";
 import Head from "next/head";
 
 export default function Home() {
-
   return (
     <>
       <Head>
@@ -10,7 +10,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="">
-        
+        <button onClick={() => signIn()}>sign in</button>
       </main>
     </>
   );
