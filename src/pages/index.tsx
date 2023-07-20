@@ -10,7 +10,18 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="h-screen bg-oscuro">
-        <button onClick={() => signIn()}>sign in</button>
+        <div className="flex h-screen items-center justify-center">
+          <form className="container flex items-center justify-center">
+            <div className="flex h-96 w-96 flex-col items-center justify-center rounded-2xl bg-gradient-to-br from-azul to-azul-oscuro to-90%">
+              <h1 className="text-2xl font-bold text-blanco tracking-tighter">Basta Online</h1>
+              <p className="text-xl text-blanco leading-6">
+                Demuestra tu ingenio en Basta Online. Encuentra palabras únicas
+                y desafía a otras personas.
+              </p>
+              <button onClick={() => signIn()}>sign in</button>
+            </div>
+          </form>
+        </div>
       </main>
     </>
   );
