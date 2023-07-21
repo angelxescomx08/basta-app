@@ -1,5 +1,7 @@
 import { signIn } from "next-auth/react";
 import Head from "next/head";
+import Image from "next/image";
+import { Balancer } from "react-wrap-balancer";
 
 export default function Home() {
   return (
@@ -12,13 +14,29 @@ export default function Home() {
       <main className="h-screen bg-oscuro">
         <div className="flex h-screen items-center justify-center">
           <form className="container flex items-center justify-center">
-            <div className="flex h-96 w-96 flex-col items-center justify-center rounded-2xl bg-gradient-to-br from-azul to-azul-oscuro to-90% shadow-2xl shadow-[#000]">
-              <h1 className="text-2xl font-bold text-blanco tracking-tighter font-roboto">Basta Online</h1>
-              <p className="text-xl text-blanco leading-6">
-                Demuestra tu ingenio en Basta Online. Encuentra palabras únicas
-                y desafía a otras personas.
-              </p>
-              <button onClick={() => signIn()}>sign in</button>
+            <div className="flex h-96 w-96 flex-col items-center justify-center gap-10 rounded-2xl bg-gradient-to-br from-azul to-azul-oscuro to-90% shadow-2xl shadow-[#000]">
+              <div className="flex flex-col items-center justify-center">
+                <h1 className="font-roboto text-[40px] font-bold leading-[60px] tracking-[-0.4px] text-blanco">
+                  Basta Online
+                </h1>
+                <p className="text-xl leading-7 text-blanco">
+                  <Balancer>
+                    Encuentra palabras únicas y desafía a otras personas.
+                  </Balancer>
+                </p>
+              </div>
+              <button
+                onClick={() => signIn()}
+                className="flex cursor-pointer items-center gap-3 rounded-xl bg-blanco px-6 py-3 shadow-md shadow-oscuro"
+              >
+                <Image
+                  src={"/assets/imgs/icons/google.svg"}
+                  width={20}
+                  height={20}
+                  alt=""
+                />
+                <p className="font-roboto font-medium">Iniciar sesión</p>
+              </button>
             </div>
           </form>
         </div>

@@ -16,4 +16,8 @@ export default {
     },
   },
   plugins: [],
+  corePlugins: {
+    backgroundOpacity: true,
+    textOpacity: true,
+  },
 } satisfies Config;
