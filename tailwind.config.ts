@@ -11,6 +11,9 @@ export default {
       azul: "#1FACAE",
       "azul-claro": "#77FAC6",
     },
+    fontFamily: {
+      roboto: ["Roboto", "sans-serif"],
+    },
   },
   plugins: [],
 } satisfies Config;
