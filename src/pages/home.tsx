@@ -7,7 +7,7 @@ let socket;
 const HomePage = () => {
   const socketInitializer = async () => {
     await fetch("/api/socket");
-    socket = io("http://localhost:3000/home");
+    socket = io();
 
     socket.on("connect", () => {
       console.log("connected");
