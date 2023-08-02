@@ -5,11 +5,13 @@ export default {
   theme: {
     extend: {},
     colors: {
-      oscuro: "#1A2028",
+      negro: "#000",
       blanco: "#fff",
-      "azul-oscuro": "#256074",
-      azul: "#1FACAE",
-      "azul-claro": "#77FAC6",
+
+      fondo: "#f3fafc",
+      primario: "#63bad4",
+      secundario: "#d3ebf3",
+      resaltar: "#36a3c4",
     },
     fontFamily: {
       roboto: ["Roboto", "sans-serif"],
