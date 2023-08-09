@@ -1,33 +1,32 @@
 import Head from "next/head";
 import { type GetServerSideProps } from "next";
 
-import { type FormEvent, useEffect, useState } from "react";
+import { type FormEvent, useEffect, useState, useRef } from "react";
 import { type Socket } from "socket.io-client";
 import io from "socket.io-client";
 import { TextInput, Button } from "@mantine/core";
 
-let socket: Socket | null = null;
-
 const HomePage = () => {
   const [room, setRoom] = useState("");
+  const socket = useRef<Socket>();
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if (!room || !socket) return;
-    socket.emit("unirse-room", room, (response: unknown) => {
+    if (!room || !socket.current) return;
+    socket.current.emit("unirse-room", room, (response: unknown) => {
       console.log(response);
     });
   };
 
   useEffect(() => {
-    socket = io();
+    socket.current = io();
 
-    socket.on("msg", (msg) => {
+    socket.current.on("connection", (msg) => {
       console.log(msg);
     });
 
     return () => {
-      socket?.disconnect();
+      socket.current?.disconnect();
     };
   }, []);
 

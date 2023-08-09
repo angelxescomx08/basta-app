@@ -6,13 +6,10 @@ const SocketHandler = (req: NextApiRequest, res: NextApiResponseWithSocket) => {
   const server = res.socket.server.io;
   if (server) {
     server.on("connection", (socket) => {
-      socket.emit("msg", {
-        msg: "hola mundo",
-      });
-      socket.on("unirse-room", async (room: string, callback) => {
+      socket.on("unirse-room", async (room: string) => {
         await socket.join(room);
         // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-        callback(`Te has unido a la sala ${room}`);
+        socket.to(room).emit(`Te has unido a la sala ${room}`);
       });
     });
   } else {
